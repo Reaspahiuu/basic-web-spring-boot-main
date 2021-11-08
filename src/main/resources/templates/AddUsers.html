@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fitness App</title>
+  <style>
+    .link-div{
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content:center;
+    }
+
+    .form-div{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    label{
+      margin: 25px 0;
+      font-weight: bold;
+      color: cadetblue;
+    }
+    a {
+      margin: 3%;
+      text-decoration: none;
+      color: darkcyan;
+      font-size: 18px;
+    }
+    input{
+      padding: 0.5% 3%;
+      width: 15%;
+      border: 1px solid #000;
+      margin: 1% 0;
+    }
+
+    .checkbox{
+      width: 5% !important;
+    }
+  </style>
+</head>
+<body>
+<div class="link-div">
+  <a href="/viewfitnessusers">Lista e anetareve</a>
+  <a href="#">Shto anetare te ri</a>
+</div>
+<div class="form-div">
+  <h1>Shto anetare te ri</h1> <br/>
+  <form th:action="${'/viewfitnessusers'}" th:object="${fitnessUserModel}" method="post">
+    <label>
+      Emri: <br/>
+      <input th:field="${fitnessUserModel.firstName}" type="text" />
+    </label><br/>
+    <label>
+      Mbiemri:<br/>
+      <input th:field="${fitnessUserModel.lastName}" type="text" />
+    </label><br/>
+    <label>
+      Mosha:<br/>
+      <input th:field="${fitnessUserModel.age}" type="number" />
+    </label><br/>
+    <label>
+      Gjinia:
+      <select th:field="${fitnessUserModel.gender}">
+        <option value="mashkull">Mashkull</option>
+        <option value="femer">Femer</option>
+      </select>
+    </label><br/>
+    <label>
+      <input class="checkbox" type="checkbox"/>
+      Aktiv
+    </label> <br/>
+    <input type="submit"/> <br/>
+    <input  type="reset" />
+  </form>
+</div>
+</body>
+</html>

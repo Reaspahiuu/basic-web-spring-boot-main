@@ -1,5 +1,4 @@
 package com.edon.basic.web.model;
-
 public class FitnessUserModel {
 
     private String firstName;
